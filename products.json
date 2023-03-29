@@ -1,0 +1,20 @@
+[
+    {
+        "name": "iPhone 13",
+        "price": 12000000,
+        "description": "The latest iPhone model",
+        "stock": 10
+    },
+    {
+        "name": "Samsung Galaxy S21",
+        "price": 10000000,
+        "description": "The latest Samsung Galaxy",
+        "stock": 15
+    },
+    {
+        "name": "iphone12",
+        "price": "12000000",
+        "description": "this is iphone 12",
+        "stock": "12"
+    }
+]

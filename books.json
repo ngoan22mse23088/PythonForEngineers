@@ -1,1 +1,16 @@
-[{"title": "Rich Dad", "author": "Robert", "publisher": "NXB ThanhNien", "year": "2018", "quantity": "Best Seller"}, {"title": "Rich Dad", "author": "Robert", "publisher": "NXB ThanhNien", "year": "2018", "quantity": "Best seller"}]
+[
+    {
+        "title": "Rich Dad",
+        "author": "Robert",
+        "publisher": "NXB ThanhNien",
+        "year": "2018",
+        "quantity": "Best Seller"
+    },
+    {
+        "title": "Rich Dad",
+        "author": "Robert",
+        "publisher": "NXB ThanhNien",
+        "year": "2018",
+        "quantity": "Best seller"
+    }
+]

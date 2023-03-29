@@ -1,60 +1,61 @@
-from Library import Library
-from Book import Book
+from ProductManager import ProductManager
+from Product import Product
 
-library = Library("books.json")
+manager = ProductManager("products.json")
 
 while True:
-    print("""
-    Menu:
-    1. Add book
-    2. Edit book
-    3. Delete book
-    4. Search book
-    5. Display books
-    6. Exit
-    """)
+    print("\n              PRODUCT MANAGER PROGRAM")
+    print("*************************MENU**************************")
+    print("**  1. Add Product.                                  **")
+    print("**  2. Edit Product By ID.                           **")
+    print("**  3. Delete Product.                               **")
+    print("**  4. Search Product By Name.                       **")
+    print("**  5. Display Products.                             **")
+    print("**  6. Exit.                                         **")
+    print("*******************************************************")
 
     choice = input("Enter your choice: ")
 
     if choice == "1":
-        title = input("Enter title: ")
-        author = input("Enter author: ")
-        publisher = input("Enter publisher: ")
-        year = input("Enter year of publication: ")
-        quantity = input("Enter quantity: ")
-        book = Book(title, author, publisher, year, quantity)
-        library.add_book(book)
-        print("Book added.")
+        name = input("Insert name : ")
+        price = input("Insert price : ")
+        description = input("Insert description: ")
+        stock = input("Insert stock: ")
+        product = Product(name, price, description, stock)
+        manager.add_product(product)
+        print("Product added.")
     elif choice == "2":
-        index = int(input("Enter book index: ")) - 1
-        book = library.books[index]
-        print(f"Editing book: {book.title}")
-        title = input(f"Enter new title ({book.title}): ") or book.title
-        author = input(f"Enter new author ({book.author}): ") or book.author
-        publisher = input(f"Enter new publisher ({book.publisher}): ") or book.publisher
-        year = input(f"Enter new year of publication ({book.year}): ") or book.year
-        quantity = input(f"Enter new quantity ({book.quantity}): ") or book.quantity
-        library.edit_book(index, title=title, author=author, publisher=publisher, year=year, quantity=quantity)
-        print("Book edited.")
+        index = int(input("Enter product index: ")) - 1
+        product = manager.products[index]
+        print(f"Editing product: {product.name}")
+        name = input(f"Enter new name ({product.name}): ") or price.name
+        price = input(f"Enter new price ({product.price}): ") or price.price
+        description = input(
+            f"Enter new description ({product.description}): ") or product.description
+        stock = input(f"Enter new stock ({product.stock}): ") or product.stock
+        manager.edit_product(index,
+                             name=name, price=price, description=description, stock=stock)
+        print("Product edited.")
     elif choice == "3":
-        index = int(input("Enter book index: ")) - 1
-        book = library.books[index]
-        print(f"Deleting book: {book.title}")
+        index = int(input("Enter product index: ")) - 1
+        product = manager.products[index]
+        print(f"Deleting product: {product.name}")
         confirm = input("Are you sure? (y/n): ")
         if confirm.lower() == "y":
-            library.delete_book(index)
-            print("Book deleted.")
+            manager.delete_product(index)
+            print("Product deleted.")
     elif choice == "4":
         search_text = input("Enter search text: ")
-        results = library.search_book(search_text)
+        results = manager.search_product(search_text)
         if results:
             print("Search results:")
-            for i, book in enumerate(results):
-                print(f"{i + 1}. {book.title} by {book.author}, published by {book.publisher} in {book.year}, {book.quantity} copies.")
+            for i, product in enumerate(results):
+                print(
+                    f"{i + 1} {product.name} {product.price} {product.description} {product.stock}")
         else:
             print("No results.")
     elif choice == "5":
-        library.display_books()
+        manager.display_products()
     elif choice == "6":
         break
     else:
