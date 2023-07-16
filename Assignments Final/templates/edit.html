@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block age %}
+<h1>{% block title %} Edit "{{ laptop.name }}" {% endblock %}</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="name" class="form-control"
+            value="{{ request.form['name'] or laptop['name'] }}">
+        </input>
+    </div>
+    <div class="form-group">
+        <label for="brand">Brand</label>
+        <textarea name="brand" placeholder="Brand" class="form-control">{{ request.form['brand'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="oldPrice">Old Price</label>
+        <textarea name="oldPrice" placeholder="Old Price" class="form-control">{{ request.form['oldPrice'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="newPrice">New Price</label>
+        <textarea name="newPrice" placeholder="New Price" class="form-control">{{ request.form['newPrice'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="percentDiscount">Percent Discount</label>
+        <textarea name="percentDiscount" placeholder="PercentDiscount"
+            class="form-control">{{ request.form['percentDiscount'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="bestSeller">Best Seller</label>
+        <textarea name="bestSeller" placeholder="Best Seller"
+            class="form-control">{{ request.form['bestSeller'] }}</textarea>
+    </div>
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary inline-block"
+            onclick="The laptop has been edited successfully!">Submit</button>
+        <a class="" href="{{url_for('laptops')}}">Back</a>
+    </div>
+    <div class="form-group">
+    </div>
+
+</form>
+<hr>
+{% endblock %}
